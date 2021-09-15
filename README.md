@@ -30,7 +30,7 @@ loren impsum
 
 
 ### Heroku Page
-To view our fully deployed application, please visit our Heroku page [https://bardic.herokuapp.com]
+To view our fully deployed application, please visit our Heroku page [https://something.herokuapp.com]
 
 ### License
   This application is licensed under the MIT license.
