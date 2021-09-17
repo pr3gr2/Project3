@@ -105,3 +105,12 @@
     font-family: 'Open Sans Condensed', sans-serif;
     justify-content: center;
 }
+
+.formSignUp{
+    background-color: white;
+    margin-top: 60px;
+    margin-left: 30px;
+    padding: 40px;
+    border-radius: 30px;
+    width: 500px;
+}

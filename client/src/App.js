@@ -15,27 +15,19 @@ function App() {
       </div>
       <div className="row background">
         <div className="col-6">
-          <form className="form">
+          <form className="formSignUp">
             <h3 className ="formName">Sign Up</h3>
-            <div className="mb-3">
-              <input type="text" class="form-control" placeholder="First Name" aria-label="Username"/>
-            </div>
-            <div className="mb-3">
-              <input type="text" class="form-control" placeholder="Last Name" aria-label="Username"/>
-            </div>
-            <div className="mb-3">
-              <input type="text" class="form-control" placeholder="Phone Number" aria-label="Username"/>
-            </div>
-            <div className="mb-3">
-              <input placeholder ="Email"type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-              <div id="emailHelp" className="form-text"></div>
-            </div>
-            <p className="privacyText">
-              By clicking on next, you acknowledge that you have read and accepted our <a href="#"> Terms of Service</a> and the Privacy Policy.
-            </p>
+            <div class="mb-3">
+              <input placeholder ="Password"type="password" class="form-control" id="exampleInputPassword1"/>
+             </div>
+             <div class="mb-3">
+              <input placeholder ="Repeat Password"type="password" class="form-control" id="exampleInputPassword1"/>
+             </div>
             <a href="#" className="nextButton">
-              Next  
+              Start Chatting  
             </a>
+            <p className="text">Already registered? <a href="#">Sign In</a>
+            </p>
           </form>
         </div>
       </div>
