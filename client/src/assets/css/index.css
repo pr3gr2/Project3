@@ -43,24 +43,36 @@
     background-color: #eaeaea;
 }
 
-button{
+.button{
     background-color: #78c00d;
     color: white;
     padding-left: 15px;
     padding-right: 15px;
-    border: none;
-    
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* border: 1px solid black; */
+    text-decoration: none;
     border-radius: 30px;
-    margin-left: 150px;
+    margin-left: 130px;
 
 }
 
+.button:hover{
+    color:#78c00d;
+    background-color: #eaeaea;
+    border: 1px solid #78c00d;
+}
+
 .text{
-    margin-top: 10px;
+    padding-top: 20px;
     padding-left: 110px;
 }
 
 .text a{
     text-decoration: none;
+    color: #78c00d;
+}
+
+.text a:hover{
     color: #78c00d;
 }
