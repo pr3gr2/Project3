@@ -24,5 +24,3 @@ mutation loginUser($email: String!, $password: String!) {
   }
 }
 `;
-
-
