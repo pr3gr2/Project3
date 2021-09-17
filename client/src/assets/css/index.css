@@ -76,3 +76,24 @@
 .text a:hover{
     color: #78c00d;
 }
+
+.nextButton{
+    border: 1px solid #78c00d;
+    background-color: #78c00d;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-decoration: none;
+    color: #eaeaea;
+    margin-left: 130px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-size: 1.4vw;
+}
+
+.nextButton:hover{
+    color:#78c00d;
+    background-color: #eaeaea;
+    border: 1px solid #78c00d;
+}
