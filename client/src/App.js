@@ -1,6 +1,9 @@
-import React, { Component }  from 'react';
+// import React, { Component }  from 'react';
 // import './App.css';
 import './assets/css/index.css'
+import NavBar from './components/NavBar';
+import { Paper } from '@material-ui/core/';
+import { ThemeProvider } from '@material-ui/core/styles';
 
 function App() {
   return (
@@ -42,6 +45,11 @@ function App() {
     </div>
     
   );
+  <ThemeProvider theme={customTheme(darkMode)}>
+  <Paper className={classes.root} elevation={0}>
+    <NavBar />
+  </Paper>
+</ThemeProvider>
 }
 
 export default App;
