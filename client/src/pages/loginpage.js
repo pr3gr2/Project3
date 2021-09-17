@@ -1,5 +1,15 @@
 import React from 'react';
-import './assets/css/index.css'
+import '../assets/css/index.css'
+import loginForm from '../components/loginForm';
+
+
+
+
+
+
+
+
+
 
 function Login(){
     return (
@@ -8,13 +18,13 @@ function Login(){
           <div className="row">
             <div className="col-4"></div>
             <div className="col-4" align="center">
-              <img className ="Logo img-fluid" src={require(`./assets/images/Logo.png`)} alt="ChatBoxLogo"/>
+              <img className ="Logo img-fluid" src={require(`../assets/images/Logo.png`)} alt="ChatBoxLogo"/>
             </div>
             <div className="col-4"></div>
           </div>
           <div className="row background">
             <div className="col-6">
-              <form className="form">
+              <form  className="form">
                 <h3 className ="formName">Login</h3>
                 <div className="mb-3">
                   <input placeholder ="Email"type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
@@ -27,7 +37,7 @@ function Login(){
                   <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
                   <label className="form-check-label" >Remember Me</label>
                 </div>
-                <a href="#" className="button">
+                <a onSubmit={loginForm()} className="button" id = "startChatting">
                 Start Chatting  
                 </a>
                 <p className="text">Not registered? <a href="#">Sign Up</a></p>
