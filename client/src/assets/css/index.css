@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+.App-header{
+    background-color: white;
+}
+
+.container{
+    /* border: 2px solid red; */
+    width: 1240px;
+    height: auto;
+    border-radius: 30px; 
+}
+
+.Logo{
+    width:189px;
+    height: 79px;
+    margin-top: 34px;
+    margin-bottom: 30px;
+}
+
+.background{
+    background-image: url('../images/backdrop.png');
+    margin-top: 100px;
+    width: 1315px;
+    height: 500px;
+    border-radius: 30px;
+}
+
+.form{
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 30px;
+    padding: 40px;
+    border-radius: 30px;
+    width: 500px;
+}
+
+.formName{
+    color: #78c00d;
+    padding-left: 150px;
+    padding-bottom: 25px;
+    /* border-bottom: 2px ridge #78c00d; */
+}
+
+.form-control{
+    background-color: #eaeaea;
+}
+
+.button{
+    background-color: #78c00d;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* border: 1px solid black; */
+    text-decoration: none;
+    border-radius: 30px;
+    margin-left: 130px;
+
+}
+
+.button:hover{
+    color:#78c00d;
+    background-color: #eaeaea;
+    border: 1px solid #78c00d;
+}
+
+.text{
+    padding-top: 20px;
+    padding-left: 110px;
+}
+
+.text a{
+    text-decoration: none;
+    color: #78c00d;
+}
+
+.text a:hover{
+    color: #78c00d;
+}
+
+.nextButton{
+    border: 1px solid #78c00d;
+    background-color: #78c00d;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-decoration: none;
+    color: #eaeaea;
+    margin-left: 130px;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-size: 1.4vw;
+}
+
+.nextButton:hover{
+    color:#78c00d;
+    background-color: #eaeaea;
+    border: 1px solid #78c00d;
+}
+
+.privacyText{
+    font-family: 'Open Sans Condensed', sans-serif;
+    justify-content: center;
+}
