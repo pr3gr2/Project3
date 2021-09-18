@@ -1,5 +1,5 @@
 # Project-3
-# ChatterBox
+# ChatBox
 ![MIT License](https://img.shields.io/badge/license-MIT-blue)
 
 ## Contents
