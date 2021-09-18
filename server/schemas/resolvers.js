@@ -1,7 +1,19 @@
 const { AuthenticationError } = require('apollo-server-express');
-const {  } = require('../models');
+const { User, Chat, Room } = require('../models');
 const { signToken } = require('../utils/auth');
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+let messages = [
+  {
+    _id: "121",
+    senderID: "614606eebcbbb73e90ee41dd",
+    message: "Test message",
+  },  
+  {
+    _id: "122",
+    senderID: "614606eebcbbb73e90ee41dd",
+    message: "Test message2",
+  }
+];
 
 const resolvers = {
   Query: {
@@ -21,6 +33,11 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
+    },
+    messages: async (parent, { username }) => {
+      // return User.findOne({ username })
+      //   .select('-__v -password')
+      return messages
     }
   },
   Mutation: {
@@ -45,6 +62,15 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
+    },
+    postMessage: async(parent, { senderID, message }) => {
+      const _id = messages.length;
+      messages.push({
+        _id,
+        senderID,
+        message
+      });
+      return messages;
     }
   }
 };
