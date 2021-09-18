@@ -10,7 +10,9 @@ const typeDefs = gql`
   }
 
   type Query {
-    getUsers: [User]!
+    me: User
+    users: [User]
+    user(username: String!): User
   }
 
   type Auth {
