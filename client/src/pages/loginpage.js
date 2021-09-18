@@ -107,7 +107,8 @@ const Login = () => {
                 Submit
               </Button>
 
-              <p className="text">Not registered? <a href="./signUp">Sign Up</a></p>
+              {/* // figure this out perhpars with apolloclient?  */}
+              <p className="text">Not registered? <a href="./signUp">Sign Up</a></p>  
 
             </Form>
 
@@ -128,7 +129,7 @@ const Login = () => {
 
 
 
-
+  export default Login;
 
 
 
@@ -196,4 +197,3 @@ const Login = () => {
   //       );
   // };
 
-export default Login;
