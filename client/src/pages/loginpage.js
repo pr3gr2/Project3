@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../assets/css/index.css'
-
+import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/react-hooks';
 import { Form, Button, Alert } from 'react-bootstrap';
@@ -107,12 +107,17 @@ const Login = () => {
                 Submit
               </Button>
 
-              {/* // figure this out perhpars with apolloclient?  */}
-              <p className="text">Not registered? <a href="./signUp">Sign Up</a></p>  
+              <div>
+              <p className="text">
+                Not registered?
+             
+              <Link to="/signup">
+                  Sign Up
+              </Link>
+              </p> 
+              </div>
 
             </Form>
-
-
 
             {/* </div>
             <div className="mb-3 form-check">

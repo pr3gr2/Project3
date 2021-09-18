@@ -8,10 +8,20 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import './assets/css/index.css'//
 
+
 function App() {
   return (
     <ApolloProvider client={client}>
-      <LoginPage />
+      <Router>
+        <>
+          {/* <LoginPage /> */}
+          <Switch>
+            <Route exact path='/' component={LoginPage} />
+            <Route exact path='/signup' component={SignUpPage} />
+            <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+          </Switch>
+        </>
+      </Router>
     </ApolloProvider>
   );
 }
