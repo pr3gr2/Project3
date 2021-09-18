@@ -5,6 +5,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
 import './assets/css/index.css'//
 
 function App() {
