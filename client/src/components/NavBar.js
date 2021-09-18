@@ -5,6 +5,7 @@ import { useStateContext } from '../context/state';
 import UserButtonsDesktop from './UserButtonsDesktop';
 import UserMenuMobile from './UserMenuMobile';
 import ChatIcon from '../svg/chat.svg';
+import React, { Component }  from 'react';import React, { Component }  from 'react';
 
 import {
   AppBar,
