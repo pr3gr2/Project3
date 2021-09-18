@@ -9,11 +9,25 @@ import './assets/css/index.css'//
 
 function App() {
   return (
-
-    <LoginPage />
-
-
+    <ApolloProvider client={client}>
+      <LoginPage />
+    </ApolloProvider>
   );
 }
+
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : '',
+      },
+    });
+  },
+  uri: '/graphql',
+});
+
+
 
 export default App;
