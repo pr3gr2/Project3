@@ -13,15 +13,15 @@ const typeDefs = gql`
     _id: ID!
     senderID: ID!
     message: String!
-    # roomID: String!
-    # createdAt: String!
+    recieverID: ID!
+    roomID: ID!
   }
 
-  type Query {
-    me: User
-    users: [User]
-    user(username: String!): User
-    messages: [Message!]
+  type Room {
+    _id: ID!
+    roomName: String!
+    participants: [User!]
+    messages: [Message]
   }
 
   type Auth {
@@ -29,10 +29,20 @@ const typeDefs = gql`
     user: User
   }
 
+  type Query {
+    me: User
+    users: [User]
+    user(username: String!): User
+    messages: [Message!]
+    message(senderID: ID!): [Message!]
+  }
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    postMessage(senderID: ID!, message: String!): [Message]
+    postMessage(senderID: ID!, recieverID: ID!, message: String!): Message
+    # addRoom(roomName: String!, admin: ID, participants: [ID!]]): Room
+    addFriends(friendId: ID!): User
   }
 `;
 

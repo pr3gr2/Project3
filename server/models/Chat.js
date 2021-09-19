@@ -12,14 +12,17 @@ const  chatSchema  =  new Schema(
         type: Schema.Types.ObjectId,
         ref: 'User',
       },
-      roomID: {
-        type: Schema.Types.ObjectId,
-        ref: 'Room',
-      },
+      // roomID: {
+      //   type: Schema.Types.ObjectId,
+      //   ref: 'Room',
+      // },
       date: {
         type: Date,
         default: Date.now
       }
+    },
+    {
+      timestamps: true
     }
 );
 
