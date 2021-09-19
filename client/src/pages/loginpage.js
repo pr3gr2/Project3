@@ -1,5 +1,5 @@
 import React from 'react';
-import './assets/css/index.css'
+import './assets/css/index.css';
 
 function Login(){
     return (
