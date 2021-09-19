@@ -3,11 +3,34 @@ import React, { Component } from 'react';
 import './assets/css/index.css'
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
+import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  InMemoryCache,
+  createHttpLink,
+} from '@apollo/client';
 import LoginPage from './pages/loginpage';
 import SignUpPage from './pages/signUpPage';
 import './assets/css/index.css'//
 
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
@@ -25,18 +48,5 @@ function App() {
     </ApolloProvider>
   );
 }
-
-const client = new ApolloClient({
-  request: (operation) => {
-    const token = localStorage.getItem("id_token");
-
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : '',
-      },
-    });
-  },
-  uri: '/graphql',
-});
 
 export default App;

@@ -20,7 +20,6 @@ class AuthService {
     window.location.assign('/');
   }
 
-
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
@@ -35,7 +34,6 @@ class AuthService {
   getToken() {
     return localStorage.getItem('id_token');
   }
-
 }
 
 export default new AuthService();

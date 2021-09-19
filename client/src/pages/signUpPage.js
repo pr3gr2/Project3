@@ -8,7 +8,7 @@ import { ADD_USER } from '../utils/mutations';
 
 
 const SignUp = () => {
-
+  
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -47,10 +47,7 @@ const SignUp = () => {
     });
   };
 
-
-
   return (
-
     <div className="container">
       <div className="row">
         <div className="col-4"></div>
@@ -65,7 +62,6 @@ const SignUp = () => {
             <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
               Something went wrong with your login credentials!
             </Alert>
-
             <Form.Group>
             <h3 className="formName">Sign Up</h3>
               <div className="mb-3">
@@ -81,8 +77,6 @@ const SignUp = () => {
               <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
               </div>
             </Form.Group>
-
-
             <Form.Group>
                 <Form.Label htmlFor='email'>Email </Form.Label>
                 <Form.Control
@@ -96,11 +90,8 @@ const SignUp = () => {
                   required
                 />
                 <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-  
             </Form.Group>
-
             <div className="mb-3">
-
               <Form.Group>
                 <Form.Label htmlFor='password'>Password</Form.Label>
                 <Form.Control
@@ -115,7 +106,6 @@ const SignUp = () => {
                 />
                 <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
               </Form.Group>
-
             </div>
             <Button
               disabled={!(userFormData.username && userFormData.email && userFormData.password)}
@@ -125,14 +115,10 @@ const SignUp = () => {
               variant='success'>
               Submit
             </Button>
-
           </Form>
-
-
         </div>
       </div>
     </div>
-
   );
 };
 
