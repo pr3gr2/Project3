@@ -1,11 +1,17 @@
 import React, { Component }  from 'react';
 // import './App.css';
-import './assets/css/index.css'
+import './assets/css/index.css';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fab, faCheckSquare, faCoffee);
 
 function App() {
   return (
     
-    <div className="container">
+    <div className="container mainContainer">
       <div align="center">
       <img className ="Logo img-fluid" src={require(`./assets/images/Logo.png`)} alt="ChatBoxLogo"/>
       </div>
@@ -32,8 +38,23 @@ function App() {
         </div>
         <div className="col-9 chatname">
           Chat Name
-          <div className="messageCenter">
+          <div className="container messageContainer">
+            <div className="row test1">
+              abcd
+            </div>
+            <div className="row test2">
+              <div className="col-1">
+
+              </div>
+              <div className="col-10">
+                <textarea class="form-control messageBox" placeholder="Type your message here" id="floatingTextarea"></textarea>
+              </div>
+              <div className="col-1">
+              <FontAwesomeIcon icon="check-square" />
+              </div>
             
+            
+            </div>
           </div>
         </div>
         
