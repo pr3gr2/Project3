@@ -42,6 +42,9 @@ const resolvers = {
         { senderID: senderID }
       )
     },
+    rooms: async (parent, { username }) => {
+      return Room.find()
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -77,17 +80,19 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    // addRoom: async (parent, { roomName, participants }, context) => {
-    //   if (context.user) {
-    //     const updatedUser = await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $addToSet: { friends: friendId } },
-    //       { new: true }
-    //     ).populate('friends');
-    //     return updatedUser;
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // }
+    addRoom: async (parent, args, context) => {
+      if (context.user) {
+        // const updatedUser = await User.findOneAndUpdate(
+        //   { _id: context.user._id },
+        //   { $addToSet: { friends: friendId } },
+        //   { new: true }
+        // ).populate('friends');
+        // return updatedUser;
+        const room = await Room.create( args );
+        return room;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    }
   }
 };
 

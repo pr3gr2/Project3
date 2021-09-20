@@ -21,12 +21,17 @@ const typeDefs = gql`
     _id: ID!
     roomName: String!
     participants: [User!]
-    messages: [Message]
   }
 
   type Auth {
     token: ID!
     user: User
+  }
+
+  type SubbedMessage {
+    message: Message!
+    type: String!
+    participants: [ID!]
   }
 
   type Query {
@@ -35,14 +40,19 @@ const typeDefs = gql`
     user(username: String!): User
     messages: [Message!]
     message(senderID: ID!): [Message!]
+    rooms: [Room!]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     postMessage(senderID: ID!, recieverID: ID!, message: String!): Message
-    # addRoom(roomName: String!, admin: ID, participants: [ID!]]): Room
+    addRoom(roomName: String!, participants: [ID!]!): Room
     addFriends(friendId: ID!): User
+  }
+
+  type Subscription {
+    newMessage: SubbedMessage!
   }
 `;
 

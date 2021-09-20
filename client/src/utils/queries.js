@@ -42,3 +42,34 @@ export const QUERY_ALLUSERS= gql`
   }
 `;
 
+export const QUERY_ALL_MESSAGES= gql`
+  {
+    messages {
+      _id
+      senderID
+      message
+  }
+}
+`;
+
+export const QUERY_SINGLE_MESSAGE= gql`
+ query SingleMessage($senderID: ID!){
+    message(senderID: $senderID) {
+    	_id
+   		message
+    	senderID
+  	}
+  }
+`;
+
+export const QUERY_ALL_ROOMS= gql`
+  query allRooms{
+    rooms {
+      _id
+      roomName
+      participants {
+        _id
+      }
+    }
+  }
+`;

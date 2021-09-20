@@ -11,6 +11,7 @@ import {
 } from '@apollo/client';
 import LoginPage from './pages/loginpage';
 import SignUpPage from './pages/signUpPage';
+import HomePage from './pages/homepage';
 import './assets/css/index.css'//
 
 const httpLink = createHttpLink({
@@ -40,6 +41,7 @@ function App() {
           {/* <LoginPage /> */}
           <Switch>
             <Route exact path='/' component={LoginPage} />
+            <Route exact path='/homepage' component={HomePage} />
             <Route exact path='/signup' component={SignUpPage} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>
