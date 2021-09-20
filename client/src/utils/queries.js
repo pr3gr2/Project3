@@ -42,6 +42,7 @@ export const QUERY_ALLUSERS= gql`
   }
 `;
 
+//get all the messeges
 export const QUERY_ALL_MESSAGES= gql`
   {
     messages {
@@ -52,6 +53,7 @@ export const QUERY_ALL_MESSAGES= gql`
 }
 `;
 
+//get single message
 export const QUERY_SINGLE_MESSAGE= gql`
  query SingleMessage($senderID: ID!){
     message(senderID: $senderID) {
@@ -62,6 +64,7 @@ export const QUERY_SINGLE_MESSAGE= gql`
   }
 `;
 
+// get All rooms
 export const QUERY_ALL_ROOMS= gql`
   query allRooms{
     rooms {
