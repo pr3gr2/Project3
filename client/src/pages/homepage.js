@@ -22,7 +22,7 @@ function HomePage() {
     <div className="row">
       
       <div className="col-3 leftcol">
-      <img className ="userProfile img-fluid" src={require(`../assets/images/backdrop.png`)} alt="ChatBoxLogo"/>
+      <img className ="userProfile img-fluid" src={require(`../assets/images/userStatic.png`)} alt="ChatBoxLogo"/>
       <p className="userName">Test User</p>
         <div className="row options">
           <div className="col">
