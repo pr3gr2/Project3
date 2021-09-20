@@ -1,10 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap')
+
 .App-header{
     background-color: white;
 }
 
-.container{
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  
+  /* Handle
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  } */
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom right, #78c00d, #fec008);
+    border-radius: 30px;
+  }
+
+.mainContainer{
     /* border: 2px solid red; */
     width: 1240px;
     height: auto;
@@ -104,4 +123,192 @@
 .privacyText{
     font-family: 'Open Sans Condensed', sans-serif;
     justify-content: center;
+}
+
+.formSignUp{
+    background-color: white;
+    margin-top: 60px;
+    margin-left: 30px;
+    padding: 40px;
+    border-radius: 30px;
+    width: 500px;
+}
+
+.test{
+    border: 1px solid #eaeaea;
+    border-radius: 30px 30px 0 0;
+    /* background-color: red; */
+    font-size: 1vw;
+}
+
+.options{
+    margin-bottom: 20px;
+}
+
+.options a{
+    color: #78c00d;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    /* border-radius: 30px 30px 0px 0px; */
+    letter-spacing: 2px;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 20px;
+}
+
+
+
+.options a:hover{
+    color: #78c00d;
+    /* border-bottom: 1px solid #78c00d; */
+    font-weight: bold;
+}
+
+.options a:active{
+    color: #fec008;
+    border-bottom: 1px solid #78c00d;
+    font-weight: bold;
+}
+
+
+
+.leftcol{
+    background-color: #eaeaea;
+    border-radius: 30px 0px 0px 30px;
+}
+.chatname{
+    color: #78c00d;
+    background-color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 3px solid #eaeaea;
+    border-radius: 0px 30px 30px 0px;
+    letter-spacing: 2px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.7vw;
+    /* margin-left: 1px; */
+}
+
+.userProfile{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+    width: 120px;
+    height: auto;
+}
+
+.userName{
+    margin-left: 110px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.messageCenter{
+    border: 1px solid #eaeaea;
+    border-radius: 30px 30px 30px 0;
+    /* background-color: red; */
+    font-size: 1vw;
+    height: 500px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.messageContainer{
+    border: 2px solid #eaeaea;
+    border-radius: 0 30px 30px 0;
+    /* background-color: aqua; */
+}
+
+
+
+.messagesList{
+    background-color: #FFF;
+    height: 425px;
+    /* border: 1px solid red; */
+    border-radius: 0px 0 0 30px;
+    margin-top: 12px !important;
+    margin-left: 5px;
+    margin-right: 1px; 
+    width: 325px !important; 
+    overflow-y: auto;
+}
+
+.messagesPreview a{
+    list-style: none;
+    padding-left: 10px;
+    margin: 0px !important;
+    /* overflow-y: scroll; */
+    
+}
+
+.messagesContainer{
+    /* border-top: 1px solid #fec008; */
+    border-bottom: 1px solid #fec008;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-left: -43px !important;
+    margin-right: -12px;
+    margin-top: -24px !important;
+    max-height: 50px;
+}
+
+
+.test2{
+    border: 1px solid #78c00d;
+    margin-top: 565px !important;
+    border-radius: 0 0 30px 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #FFF;
+    margin-left: -25px !important;
+    margin-right: -25px !important;
+    height:50px;    
+}
+
+.messageBox{
+    height: 45px !important;
+    border: none !important;
+    border-left: 1px solid #eaeaea !important;
+    padding-top: 5px !important;
+    outline: none !important;
+    
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none !important;
+}
+
+.form-control:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.icons a{
+    color: #fec008;
+    text-decoration: none;
+}
+
+.icons a:hover{
+    color: #78c00d;
+    text-decoration: none;
+}
+
+
+.send{
+    background-color: #78c00d;
+    border-radius: 0 0 30px 0;
+    padding: 0px !important;
+    margin: 0px !important;
+    color: white;
+}
+
+.form-control{
+    resize: none !important;
+    outline: none !important;
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
 }
