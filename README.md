@@ -6,37 +6,41 @@
 
 * [Description](#Description)
 * [Sections](#Sections)
-    * [Placeholder](#Placeholder)
+    * [Sign Up](#Sign-Up)
+    * [Login](#Login)
+    * [Homepage](#Homepage)
 * [Heroku Page](#Heroku-Page) 
 * [License](#license)
 * [Questions](#questions)
 
 
 ## Description
-  loren impsum
+This repo contains a chat appliction nicknamed ChatBox/ It allows you to sign up or login to an existing account in order to start or continue a conversation with one of your friends!
 
 
 ### Sections
 
-The Welcome Page
+* #### Sign-Up
 
-![ScreenShot](/assets/images/home.jpeg)
+![ScreenShot](/assets/images/signup.jpeg)
 
-* #### Placeholder
+* #### Login
 
-loren impsum
+![ScreenShot](/assets/images/login.jpeg)
 
-![ScreenShot](/assets/images/Placeholder.jpeg)
+* #### Homepage
+
+![ScreenShot](/assets/images/homepage.jpeg)
 
 
 ### Heroku Page
-To view our fully deployed application, please visit our Heroku page [https://something.herokuapp.com]
+To view our fully deployed application, please visit our Heroku page [https://pr3gr2-project3.herokuapp.com]
 
 ### License
   This application is licensed under the MIT license.
   [https://opensource.org/licenses/MIT]
 
 ### Questions
-  If you have any questions about the repo, please contact me via email at 
+  If you have any questions about the repo, please contact us via email at pr3gr2@gmail.com 
 
-[Back to the top](#ChatterBox)
+[Back to the top](#ChatBox)
