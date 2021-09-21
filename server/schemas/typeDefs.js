@@ -49,6 +49,7 @@ const typeDefs = gql`
     postMessage(senderID: ID!, recieverID: ID!, message: String!): Message
     addRoom(roomName: String!, participants: [ID!]!): Room
     addFriends(friendId: ID!): User
+    removeFriend(friendId: ID!): User
   }
 
   type Subscription {

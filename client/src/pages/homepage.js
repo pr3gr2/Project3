@@ -1,55 +1,37 @@
 import React from 'react';
 import '../assets/css/index.css';
 
+import Auth from '../utils/auth';
+import { QUERY_ME } from '../utils/queries';
 
+import { useQuery } from '@apollo/client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, faBomb, faBicycle, faCannabis } from "@fortawesome/free-solid-svg-icons";
 library.add(fab, faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, faBomb, faBicycle, faCannabis);
 
-
-
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function HomePage() {
-    return(
-<<<<<<< HEAD
-      <div className="container">
-      <div className="row">
-        <div className="col-4"></div>
-        <div className="col-4" align="center">
-          {/* <img className ="Logo img-fluid" src={require(`./assets/images/Logo.png`)} alt="ChatBoxLogo"/> */}
-        </div>
-        <div className="col-4"></div>
-      </div>
-      <div className="row background">
-        <div className="col-6">
-          <form className="formSignUp">
-            <h3 className ="formName">Sign Up</h3>
-            <div class="mb-3">
-              <input placeholder ="Password"type="password" class="form-control" id="exampleInputPassword1"/>
-            </div>
-            <div class="mb-3">
-              <input placeholder ="Repeat Password"type="password" class="form-control" id="exampleInputPassword1"/>
-            </div>
-            <a href="#" className="nextButton">
-              Start Chatting  
-            </a>
-            <p className="text">Already registered? <a href="#">Sign In</a>
-            </p>
-          </form>
-=======
-        
+
+  const { data: userData } = useQuery(QUERY_ME);
+
+  const loggedIn = Auth.loggedIn();
+  console.log(loggedIn)
+  console.log(userData)
+
+  return(
     <div className="container mainContainer">
-    <div align="center">
-    <img className ="Logo img-fluid" src={require(`../assets/images/Logo.png`)} alt="ChatBoxLogo"/>
-    </div>
-    
-    <div className="row">
-      
-      <div className="col-3 leftcol">
-      <img className ="userProfile img-fluid" src={require(`../assets/images/userStatic.png`)} alt="ChatBoxLogo"/>
-      <p className="userName">Test User</p>
+      <div align="center">
+        <img className ="Logo img-fluid" src={require(`../assets/images/Logo.png`)} alt="ChatBoxLogo"/>
+      </div>
+      <div className="row">
+        <div className="col-3 leftcol">
+          <img className ="userProfile img-fluid" src={require(`../assets/images/userStatic.png`)} alt="ChatBoxLogo"/>
+          <p className="userName">{loggedIn && userData ? <div className="col-12 col-lg-3 mb-3">{capitalizeFirstLetter(userData.me.username)} </div>: null}</p>
         <div className="row options">
           <div className="col">
             <a href="#">CHAT</a>
@@ -58,16 +40,14 @@ function HomePage() {
             <a href="#">USERS</a>
           </div>
           <div className="col">
-            <a href="#">GROUPS</a>
+            <a href="#">FRIENDS</a>
           </div>
         </div>
         <div className="row">
           <div className=" messagesList">
-            
               <ul className ="messagesPreview">
                 <a>
                   <li className="messagesContainer">
-                  
                     <p><FontAwesomeIcon icon="bomb" size="2x"/> Message 1 </p>
                   </li>
                 </a>
@@ -122,14 +102,12 @@ function HomePage() {
                   </li>
                 </a>
               </ul>
-            
           </div>
         </div>
       </div>
       <div className="col-9 chatname">
         Chat Name
         <div className="container messageContainer">
-         
           <div className="row test2">
             <div className="col-1 icons">
               <a href="#">
@@ -137,8 +115,7 @@ function HomePage() {
               </a>
             </div>
             <div className="col-10">
-              <textarea class="form-control messageBox" placeholder="Type your message here" id="floatingTextarea">
-              
+              <textarea className="form-control messageBox" placeholder="Type your message here" id="floatingTextarea">
               </textarea>
             </div>
             <div className="col-1 icons">
@@ -146,21 +123,12 @@ function HomePage() {
                 <FontAwesomeIcon icon="paper-plane" />
               </a>
             </div>
-          
-          
           </div>
->>>>>>> 6275d182956525c8ecbad0ce1c09380e6cd9eeb1
         </div>
       </div>
-      
     </div>
-<<<<<<< HEAD
-  );
-=======
-
   </div>
-    );
->>>>>>> 6275d182956525c8ecbad0ce1c09380e6cd9eeb1
+  );
 };
 
 

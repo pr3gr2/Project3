@@ -21,6 +21,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
+          .populate('friends');
         return userData;
       }
       throw new AuthenticationError('Not logged in');
@@ -79,6 +80,17 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    removeFriend: async (parent, { friendId }, context) => {
+      // if (context.user) {
+      //   const updatedUser = await User.findOneAndUpdate(
+      //     { _id: context.user._id },
+      //     { $addToSet: { friends: friendId } },
+      //     { new: true }
+      //   ).populate('friends');
+      //   return updatedUser;
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
     addRoom: async (parent, args, context) => {
       if (context.user) {
