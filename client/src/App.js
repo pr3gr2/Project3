@@ -22,6 +22,21 @@ function App() {
     //     <img className ="userProfile img-fluid" src={require(`./assets/images/userStatic.png`)} alt="ChatBoxLogo"/>
     //     <p className="userName">Test User</p>
     //       <div className="row options">
+            
+    //         {/* <ul class="nav nav-tabs" align="center">
+    //           <li class="nav-item">
+    //             <a class="nav-link active" aria-current="page" href="#messages">CHATS</a>
+    //           </li>
+    //           <li class="nav-item">
+    //             <a class="nav-link active" aria-current="page" href="#users">USERS</a>
+    //           </li>
+    //           <li class="nav-item">
+    //             <a class="nav-link active" aria-current="page" href="#">FRIENDS</a>
+    //           </li>
+              
+    //         </ul> */}
+
+
     //         <div className="col">
     //           <a href="#">CHAT</a>
     //         </div>
@@ -33,7 +48,7 @@ function App() {
     //         </div>
     //       </div>
     //       <div className="row">
-    //         <div className=" messagesList">
+    //         <div className=" messagesList" id="messages">
               
     //             <ul className ="messagesPreview">
     //               <a>
@@ -99,8 +114,56 @@ function App() {
     //     </div>
     //     <div className="col-9 chatname">
     //       Chat Name
-    //       <div className="container messageContainer">
+    //       <div className=" messageContainer">
            
+    //           <div style={{width:"min-content"}}>
+    //             <span className="sender">
+    //              Hey
+    //             </span>
+    //           </div>
+              
+    //           <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
+    //             <span className="receiver">
+    //               Hey! How's it going?
+    //             </span>
+    //           </div>
+              
+    //           <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
+    //             <span className="receiver">
+    //               Heard you got a new car! 
+    //             </span>
+    //           </div>
+              
+    //           <div style={{width:"100%"}}>
+    //             <p className="sender">
+    //               Yes, I did. It is very fast and furious.Want to go for a spin? 🚗
+    //             </p>
+    //           </div>
+              
+    //           <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
+    //             <p className="receiver">
+    //               I would love to but my final project is due soon... 
+    //             </p>
+    //           </div>
+              
+    //           <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
+    //             <p className="receiver">
+    //               I am hoping it will be done by Thursday and we can definetly go after that if you are available.  
+    //             </p>
+    //           </div>
+    //           <div>
+    //             <p className="sender">
+    //               Yes, that sounds great! Good luck on that project fam!
+    //             </p>
+    //           </div>
+    //           <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
+    //             <p className="receiver">
+    //               Thank you so much 🥰  
+    //             </p>
+    //           </div>
+            
+    //       </div>
+    //       <div className="container">
     //         <div className="row test2">
     //           <div className="col-1 icons">
     //             <a href="#">
@@ -121,6 +184,7 @@ function App() {
             
     //         </div>
     //       </div>
+          
     //     </div>
         
     //   </div>
