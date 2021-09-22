@@ -1,9 +1,8 @@
 import React from 'react';
 import '../assets/css/index.css';
-
 import Auth from '../utils/auth';
-import { QUERY_ME } from '../utils/queries';
-
+import { QUERY_ME, QUERY_ALLUSERS } from '../utils/queries';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -16,12 +15,14 @@ function capitalizeFirstLetter(string) {
 }
 
 function HomePage() {
-
   const { data: userData } = useQuery(QUERY_ME);
-
+  const { loading, data } = useQuery(QUERY_ALLUSERS);
+  const users = data?.users || [];
   const loggedIn = Auth.loggedIn();
+  
   console.log(loggedIn)
   console.log(userData)
+  console.log(data)
 
   return(
     <div className="container mainContainer">
@@ -44,14 +45,19 @@ function HomePage() {
           </div>
         </div>
         <div className="row">
-          <div className=" messagesList">
-              <ul className ="messagesPreview">
-                <a>
-                  <li className="messagesContainer">
-                    <p><FontAwesomeIcon icon="bomb" size="2x"/> Message 1 </p>
-                  </li>
-                </a>
-                <a>
+          <div className=" messagesList">                 
+            {users.map(user => (
+                <ul className ="messagesPreview">
+                  <a>     
+                    <li className="messagesContainer">
+                      <p><FontAwesomeIcon icon="bomb" size="2x"/>   
+                        <Link to={`/profile/${user.username}`}>{capitalizeFirstLetter(user.username)}</Link>
+                      </p>
+                    </li>
+                  </a>
+                </ul>
+              ))}
+                {/* <a>
                   <li className="messagesContainer">
                     <p><FontAwesomeIcon icon="cubes" size="2x"/> Message 2 </p>
                   </li>
@@ -100,8 +106,7 @@ function HomePage() {
                   <li className="messagesContainer">
                   <p><FontAwesomeIcon icon="cubes" size="2x"/> Message 11 </p>
                   </li>
-                </a>
-              </ul>
+                </a> */}
           </div>
         </div>
       </div>
