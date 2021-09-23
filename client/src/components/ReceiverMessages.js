@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, useMutation, useSubscription, gql} from '@apollo/client';
 import { WebSocketLink } from "@apollo/client/link/ws";
-import {Container, Chip, Grid, TextField, Button} from '@material-ui/core';
+// import {Container, Chip, Grid, TextField, Button} from '@material-ui/core';
 
 import React from 'react';
 import '../assets/css/index.css';
@@ -17,21 +17,21 @@ library.add(fab, faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, fa
 
 
 const ReceiverMessages = () => {
- // return (
-  //   <p>Uncomment to see </p>
+ return (
+    <p>Uncomment to see </p>
     
-  //     );
+      );
 
-  //   };
+    };
 
 
-  const { data } = useSubscription(QUERY_SINGLE_MESSAGE_RECEIVER);
-  if (!data) {
-    return null;
-  }
-  return (
-    <p> {data} </p>
-  );
+  // const { data } = useSubscription(QUERY_SINGLE_MESSAGE_RECEIVER);
+  // if (!data) {
+  //   return null;
+  // }
+  // return (
+  //   <p> Uncomment to see  </p>
+  // );
 
 
 
@@ -53,7 +53,7 @@ const ReceiverMessages = () => {
   //   </div>
   // );
 
-};
+// };
 
 
 

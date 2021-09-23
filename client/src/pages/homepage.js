@@ -2,7 +2,8 @@ import React from 'react';
 import '../assets/css/index.css';
 import Auth from '../utils/auth';
 import { Chat } from '../components/chat';
-import { QUERY_ME, QUERY_ALLUSERS } from '../utils/queries';
+import { QUERY_ME, QUERY_ALLUSERS,CHAT_ROOM, QUERY_SINGLE_MESSAGE_SENDER, } from '../utils/queries';
+// import { POST_MESSAGE } from '../utils/mutations';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,19 +18,70 @@ function capitalizeFirstLetter(string) {
 }
 
 function HomePage() {
+  // default values for testing
+  const senderID= '6147443274fed355f8b5ba06'
+  const receiverID = '61479ea77972ec219082d94a'
+  const roomID = '614bd97074c9cd69780dd4ef';
+  
   const { data: userData } = useQuery(QUERY_ME);
   const { loading, data } = useQuery(QUERY_ALLUSERS);
+  const { data: chatData } = useQuery(QUERY_SINGLE_MESSAGE_SENDER, {
+    variables: { roomID: roomID}
+  });
+  const { data: roomData} = useQuery(CHAT_ROOM , 
+    { variables: 
+      { senderID: senderID, receiverID: receiverID }
+    }
+  )
+  // const [postMessage] = useMutation(POST_MESSAGE, {
+  //   variables: { senderID: senderID, receiverID: receiverID, message: message }
+  // });
+
+  console.log(chatData);
+
   const users = data?.users || [];
+  const chat = chatData?.message || [];
   const loggedIn = Auth.loggedIn();
 
   //console.log(loggedIn)
-  console.log(userData)
-  //console.log(data)
+  console.log(users)
+  console.log(chat)
 
+    // setFormState({
+    //   // ...formState,
+    //   // [name]: value,
+    // });
+  // };
 
-  const ChatPage = () => {
+  const ChatPage = (senderID, receiverID) => {
+
+    // const handleClick = aysnc () => {
+    //   try {
+    //     await postMessage({
+    //       variables: { senderID: senderID, receiverID:receiverID, message:message }
+    //     });
+    //   } catch (e) {
+    //     console.error(e);
+    //   }
+    // };
+    // console.log(senderID)
+    // console.log(receiverID)
     return (
-      <Chat />
+      <div>
+      <div style={{width:"100%"}}>
+          {/* <SenderMessages
+              // senderID={senderID}
+              // receiverID={receiverID}
+          /> */}
+           {chat.map(cht => (<p className="sender"><p>{cht.message}</p>{cht.username}</p>))} 
+      </div>    
+      <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
+        <p className="receiver">
+          {/* <ReceiverMessages/>   */}
+          {loggedIn && chat ? <p>Uncomment to see </p>: null}
+        </p>
+      </div>     
+    </div> 
     )
   }
 
@@ -46,43 +98,42 @@ function HomePage() {
           <div className="userName">{loggedIn && userData ? <p className="col-12 col-lg-3 mb-3">{capitalizeFirstLetter(userData.me.username)} </p> : null}</div>
           <div className="row options">
             <div className="col">
-           FRIENDS
+           USERS
             </div>
           </div>
           {/* I SUGEST WE CHANGE THE CODE BELOW FROM USER TO THE FREINDS ARRAY OF THE USER LOGGED IN  */}
           <div className="row">
           <div className=" messagesList">                 
-            {/* {users.map(user => ( */}
+            {users.map(user => (
                 <ul className ="messagesPreview">
                   <a>     
                     <li className="messagesContainer">
-
                  <Button
                 type='submit'
                 id="startChatting"
                 variant='success'
                 onSubmit={ChatPage} 
                 >
-                {/* {capitalizeFirstLetter(user.username)} */}
-                {loggedIn && userData ? <> {userData.me.friends} </> : null}
+                {capitalizeFirstLetter(user.username)}
+                {/* {loggedIn && userData ? <> {userData.me.friends} </> : null} */}
                 {/* Trying to see if I can render only the firneds list. 
                 Feel free to comment out the code on line 74 and 66 and 55 if it does not work and comment in line 67  */}
               </Button>
                     </li>
                   </a>
                 </ul>
-              {/* ))} */}
+               ))}
           </div>
         </div>
         </div>
 
         <div className="col-9 chatname">
-          {loggedIn && userData ? <> {capitalizeFirstLetter(userData.me.username)} </> : null}
+          Chat
 {/* Old label
 Chat name */}
           <div className="container messageContainer">
             {ChatPage()}
-            <div className="row test2">
+            <form className="row test2" >
               <div className="col-1 icons">
                 <a href="#">
                   <FontAwesomeIcon icon="smile-beam" />
@@ -93,17 +144,35 @@ Chat name */}
                 </textarea>
               </div>
               <div className="col-1 icons">
-                <a href="#">
+                <a>
                   <FontAwesomeIcon icon="paper-plane" />
                 </a>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
-
 export default HomePage;
+
+// {users.map(user => (
+//   <ul className ="messagesPreview">
+//     <a>     
+//       <li className="messagesContainer">
+//         <Button
+//           type='submit'
+//           id={(user._id)}
+//           variant='success'
+//           onClick={()=>ChatPage(user._id,userData.me._id)}
+//         >
+//         {capitalizeFirstLetter(user.username)}
+//         {/* {loggedIn && data ? <> {data.me.friends} </> : null} */}
+//         {/* Trying to see if I can render only the firneds list. 
+//         Feel free to comment out the code on line 74 and 66 and 55 if it does not work and comment in line 67  */}
+//         </Button>
+//       </li>
+//     </a>
+//   </ul>
+// ))}

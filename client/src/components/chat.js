@@ -3,12 +3,12 @@ import ReceiverMessages from './ReceiverMessages'
 import SenderMessages from './SenderMessages'
 import { ApolloClient, InMemoryCache, useMutation, useSubscription, gql} from '@apollo/client';
 import { WebSocketLink } from "@apollo/client/link/ws";
-import {Container, Chip, Grid, TextField, Button} from '@material-ui/core';
+// import {Container, Chip, Grid, TextField, Button} from '@material-ui/core';
 
 import React from 'react';
 import '../assets/css/index.css';
 import Auth from '../utils/auth';
-import { QUERY_ME, QUERY_ALLUSERS, GET_MESSAGES } from '../utils/queries';
+import { QUERY_ME, QUERY_ALLUSERS, GET_MESSAGES, CHAT_ROOM } from '../utils/queries';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,26 +36,26 @@ library.add(fab, faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, fa
 //   });
 
   
-  export const Chat = () =>{
+  export const Chat = (props) =>{
+
+    // console.log(data)
     return(
       <div>
-   
-           
-           <div style={{width:"100%"}}>
-             <p className="sender">
-               <SenderMessages/>
-             </p>
-           </div>
-           
-           
-           <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
-             <p className="receiver">
-
-               <ReceiverMessages/>  
-             </p>
-           </div>
-           
-         
+        <div style={{width:"100%"}}>
+          <p className="sender">
+            <SenderMessages
+                // senderID={senderID}
+                // receiverID={receiverID}
+            />
+            <p>Uncomment to see </p>
+          </p>
+        </div>    
+        <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
+          <p className="receiver">
+            {/* <ReceiverMessages/>   */}
+            <p>Uncomment to see </p>
+          </p>
+        </div>     
       </div> 
     )
 }

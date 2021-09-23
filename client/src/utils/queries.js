@@ -55,11 +55,12 @@ export const QUERY_ALL_MESSAGES= gql`
 
 //get single message
 export const QUERY_SINGLE_MESSAGE_SENDER= gql`
- query SingleMessage($senderID: ID!){
-    message(senderID: $senderID) {
+ query SingleMessage($roomID: ID!){
+    message(roomID: $roomID) {
     	_id
    		message
     	senderID
+      receiverID
   	}
   }
 `;
@@ -84,6 +85,18 @@ export const QUERY_ALL_ROOMS= gql`
       participants {
         _id
       }
+    }
+  }
+`;
+export const CHAT_ROOM= gql`
+  query Chat($senderID: ID!, $receiverID: ID!){
+    chat(senderID: $senderID, receiverID: $receiverID) {
+      _id
+    roomName
+    participants{
+      _id
+      username
+    }
     }
   }
 `;

@@ -1,10 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Chat, Room } = require('../models');
 const { signToken } = require('../utils/auth');
-const { PubSub } = require('graphql-subscriptions');
+// const { PubSub } = require('graphql-subscriptions');
 
 
-const pubsub = new PubSub();
+// const pubsub = new PubSub();
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 // let messages = [
 //   {
