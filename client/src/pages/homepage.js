@@ -57,62 +57,12 @@ function HomePage() {
                   </a>
                 </ul>
               ))}
-                {/* <a>
-                  <li className="messagesContainer">
-                    <p><FontAwesomeIcon icon="cubes" size="2x"/> Message 2 </p>
-                  </li>
-                </a>
-                <a>
-                  <li className="messagesContainer">
-                    <p><FontAwesomeIcon icon="bicycle" size="2x"/> Message 3 </p>
-                  </li>
-                </a>
-                <a>
-                  <li className="messagesContainer">
-                  <p><FontAwesomeIcon icon="cannabis" size="2x"/> Message 4 </p>
-                  </li>
-                </a>
-                <a>
-                  <li className="messagesContainer">
-                  <p><FontAwesomeIcon icon="cubes" size="2x"/> Message 5 </p>
-                  </li>
-                </a>
-                <a>
-                  <li className="messagesContainer">
-                  <p><FontAwesomeIcon icon="bomb" size="2x"/> Message 6 </p>
-                  </li>
-                </a>
-                <a>
-                  <li className="messagesContainer">
-                  <p><FontAwesomeIcon icon="bicycle" size="2x"/> Message 7 </p>
-                  </li>
-                </a>
-                <a>
-                  <li className="messagesContainer">
-                  <p><FontAwesomeIcon icon="cubes" size="2x"/> Message 8 </p>
-                  </li>
-                </a>
-                <a>
-                  <li className="messagesContainer">
-                  <p><FontAwesomeIcon icon="cannabis" size="2x"/> Message 9 </p>
-                  </li>
-                </a>
-                <a>
-                  <li className="messagesContainer">
-                  <p><FontAwesomeIcon icon="cubes" size="2x"/> Message 10 </p>
-                  </li>
-                </a>
-                <a>
-                  <li className="messagesContainer">
-                  <p><FontAwesomeIcon icon="cubes" size="2x"/> Message 11 </p>
-                  </li>
-                </a> */}
           </div>
         </div>
       </div>
       <div className="col-9 chatname">
         Chat Name
-        <div className="container messageContainer">
+        {/* <div className="container messageContainer">
           <div className="row test2">
             <div className="col-1 icons">
               <a href="#">
@@ -129,7 +79,7 @@ function HomePage() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   </div>

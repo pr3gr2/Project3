@@ -14,7 +14,7 @@ export const QUERY_ME = gql`
   }
 `;
 // find user by username
-export const QUERY_USER= gql`
+export const QUERY_USER = gql`
   query($username: String!){
     user(username: $username) {
       _id
@@ -28,7 +28,7 @@ export const QUERY_USER= gql`
   }
 `;
 // get all users
-export const QUERY_ALLUSERS= gql`
+export const QUERY_ALLUSERS = gql`
   {
     users {
       _id
@@ -43,7 +43,7 @@ export const QUERY_ALLUSERS= gql`
 `;
 
 //get all the messeges
-export const QUERY_ALL_MESSAGES= gql`
+export const QUERY_ALL_MESSAGES = gql`
   {
     messages {
       _id
@@ -54,7 +54,7 @@ export const QUERY_ALL_MESSAGES= gql`
 `;
 
 //get single message
-export const QUERY_SINGLE_MESSAGE= gql`
+export const QUERY_SINGLE_MESSAGE = gql`
  query SingleMessage($senderID: ID!){
     message(senderID: $senderID) {
     	_id
@@ -65,7 +65,7 @@ export const QUERY_SINGLE_MESSAGE= gql`
 `;
 
 // get All rooms
-export const QUERY_ALL_ROOMS= gql`
+export const QUERY_ALL_ROOMS = gql`
   query allRooms{
     rooms {
       _id
@@ -79,11 +79,11 @@ export const QUERY_ALL_ROOMS= gql`
 
 
 export const GET_MESSAGES = gql`
-//   subscription {
-//     messages {
-//       id
-//       user
-//       text
-//     }
-//   }
-// `;
+  subscription {
+    messages {
+    id
+     user
+    text
+ }
+ }
+`;
