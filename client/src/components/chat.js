@@ -1,5 +1,6 @@
 
-import Messages from './messages'
+import ReceiverMessages from './ReceiverMessages'
+import SenderMessages from './SenderMessages'
 import { ApolloClient, InMemoryCache, useMutation, useSubscription, gql} from '@apollo/client';
 import { WebSocketLink } from "@apollo/client/link/ws";
 import {Container, Chip, Grid, TextField, Button} from '@material-ui/core';
@@ -37,9 +38,41 @@ export const client = new ApolloClient({
   export const Chat = () =>{
     return(
       <div>
-         <Messages/> 
+   
            
-           <div style={{width:"min-content"}}>
+           <div style={{width:"100%"}}>
+             <p className="sender">
+               <SenderMessages/>
+             </p>
+           </div>
+           
+           
+           <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
+             <p className="receiver">
+
+               <ReceiverMessages/>  
+             </p>
+           </div>
+           
+         
+      </div>
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {/* <div style={{width:"min-content"}}>
              <span className="sender">
               Hey
              </span>
@@ -55,26 +88,16 @@ export const client = new ApolloClient({
              <span className="receiver">
                Heard you got a new car! 
              </span>
-           </div>
-           
-           <div style={{width:"100%"}}>
-             <p className="sender">
-               Yes, I did. It is very fast and furious.Want to go for a spin? 🚗
-             </p>
-           </div>
-           
-           <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
+           </div> */}
+
+
+{/* <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
              <p className="receiver">
                I would love to but my final project is due soon... 
              </p>
-           </div>
-           
-           <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
-             <p className="receiver">
-               I am hoping it will be done by Thursday and we can definetly go after that if you are available.  
-             </p>
-           </div>
-           <div>
+           </div> */}
+
+{/* <div>
              <p className="sender">
                Yes, that sounds great! Good luck on that project fam!
              </p>
@@ -83,13 +106,4 @@ export const client = new ApolloClient({
              <p className="receiver">
                Thank you so much 🥰  
              </p>
-           </div>
-         
-      </div>
-    )
-}
-
-
-
-
-
+           </div> */}

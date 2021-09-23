@@ -16,26 +16,29 @@ library.add(fab, faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, fa
 
 
 
-const Messages = () => {
-    const { data } = useSubscription(GET_MESSAGES);
-    if (!data) {
-      return null;
-    }
-    return (
-      <div style={{ marginBottom: '5rem' }}>
-        {data.messages.map(({ id, user, text }) => {
-          return (
-            <div key={id} style={{ textAlign: 'right' }}>
-              <p style={{ marginBottom: '0.3rem' }}>{user}</p>
-              <Chip style={{ fontSize: '0.9rem' }} color='primary' label={text} />
-            </div>
-          );
-        })}
-      </div>
-    );
-  };
+const SenderMessages = () => {
+  return (
+    <p>Something </p>
+    
+      );
+        // const { data } = useSubscription(GET_MESSAGES);
+        // if (!data) {
+        //   return null;
+        // }
+        // return (
+        //   <div style={{ marginBottom: '5rem' }}>
+        //     {data.messages.map(({ id, user, text }) => {
+        //       return (
+        //         <div key={id} style={{ textAlign: 'right' }}>
+        //           <p style={{ marginBottom: '0.3rem' }}>{user}</p>
+        //           <Chip style={{ fontSize: '0.9rem' }} color='primary' label={text} />
+        //         </div>
+        //       );
+        //     })}
+        //   </div>
+        // );
 
-
+      };
 
 
 
@@ -43,5 +46,5 @@ const Messages = () => {
 
   
 
-  export default Messages;
+  export default SenderMessages;
   
