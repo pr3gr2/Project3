@@ -59,3 +59,17 @@ mutation addRoom($roomName: String!,$participants: [ID!]!) {
   }
 }
 `;
+
+export const REMOVE_FRIEND = gql`
+mutation removeFriend($friendId: ID!) {
+  removeFriend(friendId: $friendId) {
+    _id
+    username
+    friendCount
+    friends {
+      _id
+      username
+    }
+  }
+}
+`;
