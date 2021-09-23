@@ -12,17 +12,24 @@ const  chatSchema  =  new Schema(
         type: Schema.Types.ObjectId,
         ref: 'User',
       },
-      roomID: {
+      receiverID: {
         type: Schema.Types.ObjectId,
-        ref: 'Room',
+        ref: 'User',
       },
       date: {
         type: Date,
         default: Date.now
+      },
+      roomID: {
+        type: Schema.Types.ObjectId,
+        ref: 'Room',
       }
+    },
+    {
+      timestamps: true
     }
 );
 
 const  Chat  =  model("Chat", chatSchema);
 
-module.exports  =  Chat;
+module.exports = Chat;

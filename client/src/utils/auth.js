@@ -12,14 +12,13 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    window.location.assign('/homepage');
   }
 
   logout() {
     localStorage.removeItem('id_token');
     window.location.assign('/');
   }
-
 
   isTokenExpired(token) {
     try {
@@ -35,7 +34,6 @@ class AuthService {
   getToken() {
     return localStorage.getItem('id_token');
   }
-
 }
 
 export default new AuthService();
