@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/css/index.css';
 import Auth from '../utils/auth';
+import {Chat} from '../components/chat';
 import { QUERY_ME, QUERY_ALLUSERS } from '../utils/queries';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -62,10 +63,19 @@ function HomePage() {
       </div>
       <div className="col-9 chatname">
         Chat Name
-        <Link to={`/chat/${user.username}`}>{capitalizeFirstLetter(user.username)}</Link>
+
+
+{/* Test */}
+        {/* <p><FontAwesomeIcon icon="bomb" size="2x"/>   
+        <Link to={`/chat/`}> testing </Link>
+                      </p> */}
+
         {/* <Link to={`/chat/${user.username}`}>{capitalizeFirstLetter(user.username)}</Link> */}
 
-        {/* <div className="container messageContainer">
+{/* Test */}
+
+        <div className="container messageContainer">
+        <Chat/>
           <div className="row test2">
             <div className="col-1 icons">
               <a href="#">
@@ -82,7 +92,7 @@ function HomePage() {
               </a>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   </div>
