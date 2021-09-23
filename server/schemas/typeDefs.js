@@ -41,7 +41,7 @@ const typeDefs = gql`
     messages: [Message!]
     message(roomID: ID!): [Message!]
     rooms: [Room!]
-    chat(senderID: ID! ,receiverID: ID!):[Room]
+    chat(senderID: ID! ,receiverID: ID!):[Room!]
   }
 
   type Mutation {

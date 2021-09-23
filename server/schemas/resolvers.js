@@ -1,10 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Chat, Room } = require('../models');
 const { signToken } = require('../utils/auth');
-const {PubSub} = require('apollo-server');
+const { PubSub } = require('graphql-subscriptions');
 
 
-// const pubsub = new PubSub();
+const pubsub = new PubSub();
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 // let messages = [
 //   {
@@ -54,6 +54,7 @@ const resolvers = {
     chat: async (parent, { senderID , receiverID }) => {
       // return Room.find()
       return Room.find( { participants: { $all: [{_id: senderID, _id: receiverID}] } } )
+        .populate('participants')
     },
   },
   Mutation: {
@@ -75,7 +76,7 @@ const resolvers = {
       return { token, user };
     },
     postMessage: async(parent, args) => {
-      // const _id = messages.length;
+      // pubsub.publish('NEW_MESSAGE');
       console.log(args);
       const messages = await Chat.create(args);
       return messages;
