@@ -31,6 +31,7 @@ mutation postMessage($senderID: ID!,$recieverID: ID!, $message: String!) {
   	_id
     senderID
     message
+    recieverID
   }
 }
 `;
