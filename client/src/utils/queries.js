@@ -54,12 +54,23 @@ export const QUERY_ALL_MESSAGES= gql`
 `;
 
 //get single message
-export const QUERY_SINGLE_MESSAGE= gql`
+export const QUERY_SINGLE_MESSAGE_SENDER= gql`
  query SingleMessage($senderID: ID!){
     message(senderID: $senderID) {
     	_id
    		message
     	senderID
+  	}
+  }
+`;
+
+//get single message
+export const QUERY_SINGLE_MESSAGE_RECEIVER= gql`
+ query SingleMessage($recieverID: ID!){
+    message(recieverID: $recieverID) {
+    	_id
+   		message
+      recieverID
   	}
   }
 `;
