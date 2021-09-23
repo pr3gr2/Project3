@@ -52,7 +52,7 @@ function HomePage() {
                   <a>     
                     <li className="messagesContainer">
                       <p><FontAwesomeIcon icon="bomb" size="2x"/>   
-                        <Link to={`/profile/${user.username}`}>{capitalizeFirstLetter(user.username)}</Link>
+                        <Link to={`/chat/${user.username}`}>{capitalizeFirstLetter(user.username)}</Link>
                       </p>
                     </li>
                   </a>
@@ -62,7 +62,7 @@ function HomePage() {
         </div>
       </div>
       <div className="col-9 chatname">
-        Chat Name
+      {users.map(user => (user.username))}
 
 
 {/* Test */}
