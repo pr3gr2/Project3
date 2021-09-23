@@ -30,17 +30,28 @@ const ReceiverMessages = () => {
     return null;
   }
   return (
-    <div style={{ marginBottom: '5rem' }}>
-      {data.messages.map(({ id, user, text }) => {
-        return (
-          <div key={id} style={{ textAlign: 'right' }}>
-            <p style={{ marginBottom: '0.3rem' }}>{user}</p>
-            <Chip style={{ fontSize: '0.9rem' }} color='primary' label={text} />
-          </div>
-        );
-      })}
-    </div>
+    <p> {data} </p>
   );
+
+
+
+
+
+
+  
+// Old CODE
+  // return (
+  //   <div style={{ marginBottom: '5rem' }}>
+  //     {data.messages.map(({ id, user, text }) => {
+  //       return (
+  //         <div key={id} style={{ textAlign: 'right' }}>
+  //           <p style={{ marginBottom: '0.3rem' }}>{user}</p>
+  //           <Chip style={{ fontSize: '0.9rem' }} color='primary' label={text} />
+  //         </div>
+  //       );
+  //     })}
+  //   </div>
+  // );
 
 };
 

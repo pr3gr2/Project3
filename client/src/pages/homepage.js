@@ -8,6 +8,7 @@ import { useQuery } from '@apollo/client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import { Form, Button, Alert } from 'react-bootstrap';
 import { faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, faBomb, faBicycle, faCannabis } from "@fortawesome/free-solid-svg-icons";
 library.add(fab, faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, faBomb, faBicycle, faCannabis);
 
@@ -25,6 +26,13 @@ function HomePage() {
   console.log(userData)
   console.log(data)
 
+
+const ChatPage = () =>{
+    return(
+      <Chat/>
+    )
+  }
+
   return(
     <div className="container mainContainer">
       <div align="center">
@@ -35,9 +43,9 @@ function HomePage() {
           <img className ="userProfile img-fluid" src={require(`../assets/images/userStatic.png`)} alt="ChatBoxLogo"/>
           <p className="userName">{loggedIn && userData ? <div className="col-12 col-lg-3 mb-3">{capitalizeFirstLetter(userData.me.username)} </div>: null}</p>
         <div className="row options">
-          <div className="col">
+          {/* <div className="col">
             <a href="#">CHAT</a>
-          </div>
+          </div> */}
           <div className="col">
             <a href="#">USERS</a>
           </div>
@@ -51,9 +59,15 @@ function HomePage() {
                 <ul className ="messagesPreview">
                   <a>     
                     <li className="messagesContainer">
-                      <p><FontAwesomeIcon icon="bomb" size="2x"/>   
-                        <Link to={`/chat/${user.username}`}>{capitalizeFirstLetter(user.username)}</Link>
-                      </p>
+
+                 <Button
+                type='submit'
+                id="startChatting"
+                variant='success'
+                onSubmit={ChatPage} 
+                >
+                {capitalizeFirstLetter(user.username)}
+              </Button>
                     </li>
                   </a>
                 </ul>
@@ -61,21 +75,12 @@ function HomePage() {
           </div>
         </div>
       </div>
+
       <div className="col-9 chatname">
-      {users.map(user => (user.username))}
-
-
-{/* Test */}
-        {/* <p><FontAwesomeIcon icon="bomb" size="2x"/>   
-        <Link to={`/chat/`}> testing </Link>
-                      </p> */}
-
-        {/* <Link to={`/chat/${user.username}`}>{capitalizeFirstLetter(user.username)}</Link> */}
-
-{/* Test */}
-
+        Chat
+      {/* {users.map(user => user.username)} */}
         <div className="container messageContainer">
-        <Chat/>
+        {ChatPage()} 
           <div className="row test2">
             <div className="col-1 icons">
               <a href="#">
