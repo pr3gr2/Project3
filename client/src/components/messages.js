@@ -1,5 +1,3 @@
-
-import Messages from './messages'
 import { ApolloClient, InMemoryCache, useMutation, useSubscription, gql} from '@apollo/client';
 import { WebSocketLink } from "@apollo/client/link/ws";
 import {Container, Chip, Grid, TextField, Button} from '@material-ui/core';
@@ -7,7 +5,7 @@ import {Container, Chip, Grid, TextField, Button} from '@material-ui/core';
 import React from 'react';
 import '../assets/css/index.css';
 import Auth from '../utils/auth';
-import { QUERY_ME, QUERY_ALLUSERS, GET_MESSAGES } from '../utils/queries';
+import { QUERY_ME, QUERY_ALLUSERS, GET_MESSAGES} from '../utils/queries';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,29 +16,24 @@ library.add(fab, faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, fa
 
 
 
-
-const link = new WebSocketLink({
-    uri: `ws://localhost:4000/`,
-    options: {
-      reconnect: true,
-    },
-});
-
-
-export const client = new ApolloClient({
-    link, //websocket link
-    uri: 'http://localhost:4000/', //connect to server
-    cache: new InMemoryCache(),
-  });
-
-  
-  export const Chat = () =>{
-    return(
-      <div>
-         <h3>Welcome to DevThoughts! A simple chat app for the GraphQL series!</h3>
-         <Messages/> /*add here*/
+const Messages = () => {
+    const { data } = useSubscription(GET_MESSAGES);
+    if (!data) {
+      return null;
+    }
+    return (
+      <div style={{ marginBottom: '5rem' }}>
+        {data.messages.map(({ id, user, text }) => {
+          return (
+            <div key={id} style={{ textAlign: 'right' }}>
+              <p style={{ marginBottom: '0.3rem' }}>{user}</p>
+              <Chip style={{ fontSize: '0.9rem' }} color='primary' label={text} />
+            </div>
+          );
+        })}
       </div>
-    )
-}
+    );
+  };
 
-
+  export default Messages;
+  

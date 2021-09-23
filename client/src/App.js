@@ -13,7 +13,9 @@ import {
 import LoginPage from './pages/loginpage';
 import SignUpPage from './pages/signUpPage';
 import HomePage from './pages/homepage';
+import {Chat} from './components/chat';
 import './assets/css/index.css'//
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -43,6 +45,8 @@ function App() {
             <Route exact path='/' component={LoginPage} />
             <Route exact path='/homepage' component={HomePage} />
             <Route exact path='/signup' component={SignUpPage} />
+            <Route exact path='/chat' component={Chat} />
+            {/* <Chat/> */}
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>
       </Router>

@@ -76,3 +76,14 @@ export const QUERY_ALL_ROOMS= gql`
     }
   }
 `;
+
+
+export const GET_MESSAGES = gql`
+//   subscription {
+//     messages {
+//       id
+//       user
+//       text
+//     }
+//   }
+// `;
