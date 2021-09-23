@@ -62,6 +62,9 @@ function HomePage() {
       </div>
       <div className="col-9 chatname">
         Chat Name
+        <Link to={`/chat/${user.username}`}>{capitalizeFirstLetter(user.username)}</Link>
+        {/* <Link to={`/chat/${user.username}`}>{capitalizeFirstLetter(user.username)}</Link> */}
+
         {/* <div className="container messageContainer">
           <div className="row test2">
             <div className="col-1 icons">
