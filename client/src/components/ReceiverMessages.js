@@ -18,7 +18,7 @@ library.add(fab, faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, fa
 
 const ReceiverMessages = () => {
  // return (
-  //   <p>Something </p>
+  //   <p>Uncomment to see </p>
     
   //     );
 

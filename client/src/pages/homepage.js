@@ -33,34 +33,6 @@ function HomePage() {
     )
   }
 
-  const allUsers = () => {
-
-    return (
-      <div className="row">
-        <div className=" messagesList">
-          {users.map(user => (
-            <ul className="messagesPreview">
-              <a>
-                <li className="messagesContainer">
-
-                  <Button
-                    type='submit'
-                    id="startChatting"
-                    variant='success'
-                    onSubmit={ChatPage}
-                  >
-                    {capitalizeFirstLetter(user.username)}
-                  </Button>
-                </li>
-              </a>
-            </ul>
-          ))}
-        </div>
-      </div>
-    )
-
-  }
-
   ///main return code
 
   return (
@@ -76,15 +48,15 @@ function HomePage() {
             {/* <div className="col">
             <a href="#">CHAT</a>
           </div> */}
-            <div className="col">
+            {/* <div className="col">
               <a href="#">USERS</a>
-            </div>
+            </div> */}
             <div className="col">
-              <a href="#">FRIENDS</a>
+           FRIENDS
             </div>
           </div>
-          {allUsers()}
-          {/* <div className="row">
+          {/* I SUGEST WE CHANGE THE CODE BELOW FROM USER TO THE FREINDS ARRAY OF THE USER LOGGED IN  */}
+          <div className="row">
           <div className=" messagesList">                 
             {users.map(user => (
                 <ul className ="messagesPreview">
@@ -104,12 +76,14 @@ function HomePage() {
                 </ul>
               ))}
           </div>
-        </div> */}
+        </div>
         </div>
 
         <div className="col-9 chatname">
           Chat
-          {/* {users.map(user => user.username)} */}
+          {/* Other ways to represent the data below  
+          {/* <p>{loggedIn && userData ? <div>{capitalizeFirstLetter(userData.me.username)} </div> : null}</p>
+          {users.map(user => user.username)} */}
           <div className="container messageContainer">
             {ChatPage()}
             <div className="row test2">
