@@ -1,6 +1,10 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Chat, Room } = require('../models');
 const { signToken } = require('../utils/auth');
+const {PubSub} = require('apollo-server');
+
+
+// const pubsub = new PubSub();
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 // let messages = [
 //   {
@@ -37,14 +41,19 @@ const resolvers = {
     messages: async (parent, { username }) => {
       return Chat.find()
     },
-    message: async (parent, { senderID }) => {
-      console.log(senderID)
+    message: async (parent, { roomID }) => {
+      console.log(roomID)
       return Chat.find(
-        { senderID: senderID }
+        { roomID: roomID }
       )
     },
     rooms: async (parent, { username }) => {
       return Room.find()
+      .populate('participants')
+    },
+    chat: async (parent, { senderID , receiverID }) => {
+      // return Room.find()
+      return Room.find( { participants: { $all: [{_id: senderID, _id: receiverID}] } } )
     },
   },
   Mutation: {
@@ -67,6 +76,7 @@ const resolvers = {
     },
     postMessage: async(parent, args) => {
       // const _id = messages.length;
+      console.log(args);
       const messages = await Chat.create(args);
       return messages;
     },
@@ -82,15 +92,15 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     removeFriend: async (parent, { friendId }, context) => {
-      // if (context.user) {
-      //   const updatedUser = await User.findOneAndUpdate(
-      //     { _id: context.user._id },
-      //     { $addToSet: { friends: friendId } },
-      //     { new: true }
-      //   ).populate('friends');
-      //   return updatedUser;
-      // }
-      // throw new AuthenticationError('You need to be logged in!');
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { friends: friendId } },
+          { new: true }
+        ).populate('friends');
+        return updatedUser;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     addRoom: async (parent, args, context) => {
       if (context.user) {
