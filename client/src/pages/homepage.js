@@ -8,7 +8,7 @@ import { useQuery } from '@apollo/client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, faBomb, faBicycle, faCannabis } from "@fortawesome/free-solid-svg-icons";
 library.add(fab, faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, faBomb, faBicycle, faCannabis);
 
@@ -22,9 +22,9 @@ function HomePage() {
   const users = data?.users || [];
   const loggedIn = Auth.loggedIn();
 
-  console.log(loggedIn)
+  //console.log(loggedIn)
   console.log(userData)
-  console.log(data)
+  //console.log(data)
 
 
   const ChatPage = () => {
@@ -43,14 +43,8 @@ function HomePage() {
       <div className="row">
         <div className="col-3 leftcol">
           <img className="userProfile img-fluid" src={require(`../assets/images/userStatic.png`)} alt="ChatBoxLogo" />
-          <p className="userName">{loggedIn && userData ? <div className="col-12 col-lg-3 mb-3">{capitalizeFirstLetter(userData.me.username)} </div> : null}</p>
+          <div className="userName">{loggedIn && userData ? <p className="col-12 col-lg-3 mb-3">{capitalizeFirstLetter(userData.me.username)} </p> : null}</div>
           <div className="row options">
-            {/* <div className="col">
-            <a href="#">CHAT</a>
-          </div> */}
-            {/* <div className="col">
-              <a href="#">USERS</a>
-            </div> */}
             <div className="col">
            FRIENDS
             </div>
@@ -58,7 +52,7 @@ function HomePage() {
           {/* I SUGEST WE CHANGE THE CODE BELOW FROM USER TO THE FREINDS ARRAY OF THE USER LOGGED IN  */}
           <div className="row">
           <div className=" messagesList">                 
-            {users.map(user => (
+            {/* {users.map(user => ( */}
                 <ul className ="messagesPreview">
                   <a>     
                     <li className="messagesContainer">
@@ -69,21 +63,23 @@ function HomePage() {
                 variant='success'
                 onSubmit={ChatPage} 
                 >
-                {capitalizeFirstLetter(user.username)}
+                {/* {capitalizeFirstLetter(user.username)} */}
+                {loggedIn && userData ? <> {userData.me.friends} </> : null}
+                {/* Trying to see if I can render only the firneds list. 
+                Feel free to comment out the code on line 74 and 66 and 55 if it does not work and comment in line 67  */}
               </Button>
                     </li>
                   </a>
                 </ul>
-              ))}
+              {/* ))} */}
           </div>
         </div>
         </div>
 
         <div className="col-9 chatname">
-          Chat
-          {/* Other ways to represent the data below  
-          {/* <p>{loggedIn && userData ? <div>{capitalizeFirstLetter(userData.me.username)} </div> : null}</p>
-          {users.map(user => user.username)} */}
+          {loggedIn && userData ? <> {capitalizeFirstLetter(userData.me.username)} </> : null}
+{/* Old label
+Chat name */}
           <div className="container messageContainer">
             {ChatPage()}
             <div className="row test2">

@@ -19,20 +19,21 @@ library.add(fab, faCheckSquare, faCoffee, faPaperPlane, faSmileBeam, faCubes, fa
 
 
 
+//code recommended to use but I could not get it to work ask nayan for resource he suggested to use 
 
-const link = new WebSocketLink({
-    uri: `ws://localhost:4000/`,
-    options: {
-      reconnect: true,
-    },
-});
+// const link = new WebSocketLink({
+//   uri: "ws://localhost:4000/subscriptions",
+//   options: {
+//     reconnect: true
+//   }
+// });
 
 
-export const client = new ApolloClient({
-    link, //websocket link
-    uri: 'http://localhost:4000/', //connect to server
-    cache: new InMemoryCache(),
-  });
+// export const client = new ApolloClient({
+//     link, //websocket link
+//     uri: 'http://localhost:4000/', //connect to server
+//     cache: new InMemoryCache(),
+//   });
 
   
   export const Chat = () =>{
@@ -55,7 +56,7 @@ export const client = new ApolloClient({
            </div>
            
          
-      </div>
+      </div> 
     )
 }
 
