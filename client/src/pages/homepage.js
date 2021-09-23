@@ -73,12 +73,17 @@ function HomePage() {
               // senderID={senderID}
               // receiverID={receiverID}
           /> */}
-           {chat.map(cht => (<p className="sender"><p>{cht.message}</p>{cht.username}</p>))} 
-      </div>    
+           {/* {chat.map(cht => (<p className="sender"><p>{cht.message}</p>{cht.username}</p>))}  */}
+           <div style={{width:"100%"}}>
+                {/* <p className="sender">
+                  Yes, I did. It is very fast and furious.Want to go for a spin? 🚗
+                </p> */}
+              </div>
+            </div>    
       <div style={{width:"100%",justifyContent:"flex-end", display:"flex"}}>
         <p className="receiver">
           {/* <ReceiverMessages/>   */}
-          {loggedIn && chat ? <p>Uncomment to see </p>: null}
+          {loggedIn && chat ? <p>Hello </p>: null}
         </p>
       </div>     
     </div> 
@@ -133,6 +138,8 @@ function HomePage() {
 Chat name */}
           <div className="container messageContainer">
             {ChatPage()}
+          </div>
+            <div className="container">
             <form className="row test2" >
               <div className="col-1 icons">
                 <a href="#">
@@ -149,7 +156,7 @@ Chat name */}
                 </a>
               </div>
             </form>
-          </div>
+            </div>
         </div>
       </div>
     </div>
