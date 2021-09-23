@@ -38,7 +38,7 @@ export const client = new ApolloClient({
     return(
       <div>
          <h3>Welcome to DevThoughts! A simple chat app for the GraphQL series!</h3>
-         <Messages/> /*add here*/
+         <Messages/> 
       </div>
     )
 }
